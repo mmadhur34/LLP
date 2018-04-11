@@ -1,0 +1,13 @@
+SolaceAnalyzer - Hardware counter are needed (collect we can use)
+papi - Hardware counters are required
+perf
+likwid
+stap
+
+
+Uncomment sudo dpkg -i $LINUXTOOLS_INSTALL_HOME/resources/*.ddeb in dbgsyms.sh /Work/Linux/resources/bin
+
+mvn -f HARDWARE/HardwareOptimization/pom.xml clean install
+collect -j on -d $WORK_HOME/resources/tmp -o shapelistpointers.er java -cp HARDWARE/HardwareOptimization/target/HardwareOptimization-1.0-SNAPSHOT.jar org.mk.training.opts.ShapeShifting
+
+
