@@ -10,4 +10,13 @@ Uncomment sudo dpkg -i $LINUXTOOLS_INSTALL_HOME/resources/*.ddeb in dbgsyms.sh /
 mvn -f HARDWARE/HardwareOptimization/pom.xml clean install
 collect -j on -d $WORK_HOME/resources/tmp -o shapelistpointers.er java -cp HARDWARE/HardwareOptimization/target/HardwareOptimization-1.0-SNAPSHOT.jar org.mk.training.opts.ShapeShifting
 
+NonBlockingHashMap
+
+
+Aeron
+
+
+Env
+/home/alchemy/bin:/home/alchemy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/alchemy/Work/Linux/resources/perf-map-agent/bin:/home/alchemy/Work/Linux/resources/overseer/examples:/home/alchemy/Work/Linux/resources:/home/alchemy/Work/Linux/resources/msr-cloud-tools:/home/alchemy/Work/Linux/resources/libpfm/examples:/home/alchemy/Work/Linux/resources/libpfm/perf-examples:/home/alchemy/Work/Linux/resources/pcm-master:/home/alchemy/maven/bin:/opt/oracle/solarisstudio12.4/bin/amd64:/opt/oracle/solarisstudio12.4/bin:/home/alchemy/Work/JINT/resources/bin:/home/alchemy/Work/JINT/resources/perf-tools/bin:/home/alchemy/Work/JINT/resources/FlameGraph
+
 
