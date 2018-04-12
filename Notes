@@ -4,6 +4,7 @@ perf
 likwid
 stap
 
+xadd vs compareexchange instruction
 
 Uncomment sudo dpkg -i $LINUXTOOLS_INSTALL_HOME/resources/*.ddeb in dbgsyms.sh /Work/Linux/resources/bin
 
@@ -18,5 +19,29 @@ Aeron
 
 Env
 /home/alchemy/bin:/home/alchemy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/alchemy/Work/Linux/resources/perf-map-agent/bin:/home/alchemy/Work/Linux/resources/overseer/examples:/home/alchemy/Work/Linux/resources:/home/alchemy/Work/Linux/resources/msr-cloud-tools:/home/alchemy/Work/Linux/resources/libpfm/examples:/home/alchemy/Work/Linux/resources/libpfm/perf-examples:/home/alchemy/Work/Linux/resources/pcm-master:/home/alchemy/maven/bin:/opt/oracle/solarisstudio12.4/bin/amd64:/opt/oracle/solarisstudio12.4/bin:/home/alchemy/Work/JINT/resources/bin:/home/alchemy/Work/JINT/resources/perf-tools/bin:/home/alchemy/Work/JINT/resources/FlameGraph
+
+ManyToOneRingBuffer
+
+store fencing
+
+Branch misses
+Branch prediction- how to eliminate branch prediction. 
+
+## Profiles
+Instrumenting - high cost
+Sampling - costly - one checkpoint to another checkpoint
+
+## Hardware profilers
+perf, collect, likwid
+collects software, os, hardware
+use hardware counters
+-g option in perf - just want to count attributes
+
+perf stat is zero cost
+perf -g graph events - which method caused cache misses, cpu cycles
+
+# how can we collect it for already running apps not started with perf using -p flag
+
+
 
 
