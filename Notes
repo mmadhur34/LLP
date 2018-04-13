@@ -42,6 +42,158 @@ perf -g graph events - which method caused cache misses, cpu cycles
 
 # how can we collect it for already running apps not started with perf using -p flag
 
+### Profiling
+perf record
+perf stat
+perf list
+perf report - i filename 
+flame graph brendan gregg
+
+** sudo perf record -F 99 -o $WORK_HOME/resources/tmp/vq.data -g taskset -c 1,5 java -XX:+PreserveFramePointer -agentpath:$WORK_HOME/resources/perf-map-agent/libperfmap.so=unfold,msig -cp $WORK_HOME/HARDWARE/HardwareBasedQueues/target/HardwareBasedQueues-1.0-SNAPSHOT.jar org.mk.training.logic.queues.QueuePerfTest 1 5
+
+--record, taskset, unfold debug symbols (address to method name mapping), get perf stat, preserve frame pointers (rbp register not used for other purpose)
+ make sure hardware counters are there other wise software counters would be used
+
+-XX:-PreserverFramePointer jvm flag to use rbp as base poniter not to store integer, so that perf tool profilling is correct.
+ 
+ install Debug symbols
+  dpkg -l |grep dbgsy
+  
+  1. Debug symbols
+  2. PreservedFramPointerotherwise I will get broken poniter
+  3. PerfMap Agent
+  
+  rendering graph - use only one parameter
+  with stats - you can measure multiple things
+  
+  Watch Jil Tene Azul CTO - How not to measure latency
+  HDRHistogram plotter
+  
+  MicroArchitecute Course
+  
+  ## Pipelining
+  
+  
+  ## Loop branch buffer
+  
+  ## Optimization blockers for compiler optimization
+  
+  ## Super scalar architecure
+  
+  #Branch prediction
+  
+  Overseer API for brnach prediction, perf/analyzer/collect will give branches for application + jvm code as well. 
+  API can give exact results.
+  
+  cmove - compare and move
+  cmpxchng - compare and exchange
+  jump 
+  branch prediction is not good, thats why using exceptions for flow is not good for performance.
+  warm up your code.
+  
+  
+  not covering
+  # Write combine - breaking loops in smaller can be optimal
+  
+  Exception - if you can progress dont throw exception call what to do then, use it only when you cant progress.
+  
+  # Light wait volatile
+  QueuePerformanceTest
+  
+  Lazyset or put Order
+  
+  Cache coherent cpu : Mesi https://en.wikipedia.org/wiki/MESI_protocol
+  
+  
+  Perf - off cpu graph using flag
+  Perf - on cpu graph
+  
+  Node.js went Single threaded
+  
+  While analyzing code with analyser keep in mind the skid effect for the line number, it could be narby one.
+  
+  ##False Sharing - Unshared data should be spaced enough so that different threads in different thread not getting cache invalidated unnecessarily.
+  
+  FalseSharingExample
+  A must jvm options in multicore system - -XX:+UseCondCardMark - to reduce false sharing in JVM.
+  It will not invalidate the cache lines
+  
+  FastFlow Queue - QueuePerfTest 9
+  
+  
+  Readings-
+  Blog for CPU
+  http://www.agner.org/optimize/blog/
+  http://www.agner.org/
+  
+  # taskset -p pid
+  need pid
+  
+  # jta - java thread afinity in (openHFT librarary)
+  /proc/cpuinfo
+  call setAffinity( thread id and core id)
+  
+  AffinityThreadFactory class in Mohits code.AffinitySupport modeule
+  
+  #jni -> jna.jar in /usr/lib/jna.jar or jna.so
+  
+  You need jna.so , jta.jar and jna.jar
+  
+ ## Afinity Exclusive
+  mkdir /dev/cpuset
+mount -t cpuset cpuset /dev/cpuset
+cd /dev/cpuset
+mkdir prodset             # create a cpuset called "prodset"
+cd prodset
+/bin/echo 7-10 > cpus  # assign CPUs 7-10
+/bin/echo 0 > mems         
+/bin/echo 1 > cpu_exclusive    # make prodset exclusive
+/bin/echo 1159 > tasks 
+java -server $JVM_OPTS -classpath $WORK_HOME/LOWLATENCY/LowLatencyQueues/target/LowLatencyQueues-1.0-SNAPSHOT.jar org.mk.training.queues.harnessandtorginal.QueuePerfTest 9 10000
+
+Affinity for ISR and Kernel Modules
+grep wlan /proc/interrupts
+cat /proc/irq/18/smp_affinity
+echo 1 >/proc/irq/<irqnum>/smp_affinity
+  
+  isolcpu -
+  OS level need to be in booting up and will suffere for wait time also. Not good for procution environment.
+  
+  No of software threads = Ncpu + Ucpu * (1+ W/C) 
+  Ucpu = CPU utilization 0-1
+  W/C - ratio of wait to compute time - lock or io using hsdb, visualvm, jconsole
+  
+  ## JVM
+  Null Check elimination at runtime
+  Eliminate ArrayIndexOOB checks
+  Inline
+  Lock Coercening
+  
+  
+  Inlining logs to find out hot codes
+  Class Morphic
+  java -XX:+PrintFlagsFinal UseTypeProfile=true
+  
+  java mode
+  -server - slow optimization 10000 iteration
+  -client - fast optimization 1500 iteration
+  -XX:TieredCompilation - custom iteration
+  
+  Maven options with executions exec:exec
+  CompilationAndInlining
+  Finally
+  Intrinsics
+  ReadHotspot
+  ControlInline
+  
+  Optimization Blockers in JVM
+  
+ 
+  
+  
+   
+  
+  
 
 
 
