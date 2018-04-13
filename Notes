@@ -188,6 +188,24 @@ echo 1 >/proc/irq/<irqnum>/smp_affinity
   
   Optimization Blockers in JVM
   
+  
+  shenandoah gc in Open JDK
+  
+  #CMS GC- Use for nearly low latency applications
+  Manual configuration
+  Initiator occupancy fraction - default 64% - give 40% JVM find what is the correct fraction
+  mention four options atleaset 
+  Occupancy fraction, mention dont use analysis
+  
+  #G1 is LowLatency collector and fixed the flaws of CMS
+  ClassUnloadingEnabled
+  
+  
+  ##Perf rdtsc option for method level latency
+  
+  mohit.riverstone@gmail.com
+  
+  
  
   
   
