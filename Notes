@@ -1,3 +1,5 @@
+
+
 SolaceAnalyzer - Hardware counter are needed (collect we can use)
 papi - Hardware counters are required
 perf
@@ -5,6 +7,10 @@ likwid
 stap
 
 xadd vs compareexchange instruction
+
+Cycles per instruction (CPI) is an important high-level metric for describing where a CPU is spending its clock cycles and for understanding the nature of CPU
+utilization. Best is 4-5 CPI.
+
 
 Uncomment sudo dpkg -i $LINUXTOOLS_INSTALL_HOME/resources/*.ddeb in dbgsyms.sh /Work/Linux/resources/bin
 
