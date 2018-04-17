@@ -1,3 +1,14 @@
+Word Size - 32bytes 64 bytes
+L1Cache - 
+L2 Cache
+L3 Cache -
+TLB
+Page Tale in Main memory
+Page Size - Normal - 4KB, Huge page size -2MB
+#getconf PAGE_SIZE
+
+A larger page size means more waste when a page is partially used, so the system runs out of memory sooner.
+
 
 
 SolaceAnalyzer - Hardware counter are needed (collect we can use)
@@ -52,8 +63,30 @@ perf -g graph events - which method caused cache misses, cpu cycles
 perf record
 perf stat
 perf list
+perf top  - perf top can profile a system in real time. Just like the top command in Linux, it can dynamically conduct a system monitoring
 perf report - i filename 
 flame graph brendan gregg
+perf record -F 99 -p PID sleep 10 ==> Sample on cpu functions for process at 99Hz for 10 sec
+
+perf <command> [option]
+Commands Descriptions
+annotate Read perf.data* and display annotated code
+diff Read two perf.data* files and display the differential
+profile
+probe Define new dynamic trace-points
+record Run a command and record its profile into perf.data*
+report Read perf.data* and display the profile
+script Read perf.data* and display trace output
+stat Run a command and gather performance counter
+statistics
+timechart Tool to visualize total system behavior during a workload
+top Generate and displays a performance counter profile
+trace Show the events associated with syscall s, etc
+lock Analyze lock events
+
+## Perf record options
+-p Designate a process ID
+-t Designate a thread ID
 
 ** sudo perf record -F 99 -o $WORK_HOME/resources/tmp/vq.data -g taskset -c 1,5 java -XX:+PreserveFramePointer -agentpath:$WORK_HOME/resources/perf-map-agent/libperfmap.so=unfold,msig -cp $WORK_HOME/HARDWARE/HardwareBasedQueues/target/HardwareBasedQueues-1.0-SNAPSHOT.jar org.mk.training.logic.queues.QueuePerfTest 1 5
 
