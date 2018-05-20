@@ -1,0 +1,32 @@
+Allocation rate-
+In Visualvm monitor profile heap memory - Memory settings - profile obect allocation every 10th object, record allocation stack trace.
+With that option you can find out from where you are grtting the top objects.
+
+Finding memory leak
+Eclipse MAT
+Histogram
+Object - Count - Shallow Heap - Retained Heap (include the children) sort the histogram by retained heap.
+
+
+Memory profiling
+- increasing generation counts
+jvisualvm  - profile
+select - profile obj allocation and gc, remove record stack trace (takes long)
+
+Advanced memory leaks
+1) classloader memory leak
+2) Thread local memory leak
+3) of heap memory leak
+
+1) classloader - leaks are difficult to detect since, they would showup as different instaces (combination of classloader+class)
+
+2) ThreadLocal memory - 
+
+
+Allocation rate problem - if allocaTION RATE IS HIGHER
+More frequent gc pause, premature promotion, more frequent full gc eventually
+Java mission control - memory allocation template  in the flight recording
+flight record result > memory > allocations >
+Allocation in Tlab > allocation by class
+
+
