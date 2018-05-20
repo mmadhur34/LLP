@@ -30,3 +30,7 @@ flight record result > memory > allocations >
 Allocation in Tlab > allocation by class
 
 
+## YourKit
+CPU profiling  -Sampling, Call counting - find hot methods,
+Sampling - look for own time - take snapshot - look for hotspot
+run inspection
